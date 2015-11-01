@@ -1,0 +1,72 @@
+<html ng-app="scotchTodo">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Node/Angular Todo App</title>
+
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<style>
+		html 					{ overflow-y:scroll; }
+		body 					{ padding-top:50px; }
+		#todo-list 				{ margin-bottom:30px; }
+		#todo-form 	 			{ margin-bottom:50px; }
+		.text_show{ 
+			border-style: solid; 
+			border-color: #2DB423;
+		}
+		.text_insert{
+			border-style: solid; 
+			border-color: #BD1D1D;
+		}
+	</style>
+
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<script src="core.js"></script>
+
+</head>
+<body ng-controller="mainController">
+	<div class="container">
+
+		<div class="jumbotron text-center">
+			<h1>Total ID <span class="label label-info">{{ todos.length }}</span></h1>
+		</div>
+
+		<div id="todo-form" class="row">
+			<div class="col-sm-5 text_show">
+				<div class="checkbox" ng-repeat="todo in todos">
+					<label>
+						Name:  <span class="label label-success"> {{ todo.Name }}</span>
+						Phone: <span class="label label-danger">{{ todo.Phone }}</span>
+						Email: <span class="label label-primary">{{ todo.Email }}</span>
+					</label>
+				</div>
+			</div>
+			
+			<div class="col-sm-5 col-sm-offset-2 text_insert">
+				<form>
+					<div class="form-group">
+						<label for="pwd">Name:</label>
+						<input type="text" class="form-control input-md text-center" placeholder="Plase Insert Name Heare" ng-model="formData.Name">
+					</div>
+					<div class="form-group">
+						<label for="pwd">Phone:</label>
+						<input type="text" class="form-control input-md text-center" placeholder="Plase Insert Phone Heare" ng-model="formData.Phone">
+					</div>
+					<div class="form-group">
+						<label for="pwd">Email:</label>
+						<input type="text" class="form-control input-md text-center" placeholder="Plase Insert Email Heare" ng-model="formData.Email">
+					</div>
+					<button type="submit" class="btn btn-success btn-md pull-right" ng-click="createTodo()">Add</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="text-center text-muted">
+			<p>Pm Jirwat wannawang.</p>
+		</div>
+
+	</div>
+
+</body>
+</html>
